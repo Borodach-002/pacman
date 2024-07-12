@@ -17,10 +17,6 @@
 #include "settings.h"
 #include "erproc.h"
 
-#include "1betinput.cpp"
-#include "rendering.cpp"
-#include "settings.cpp"
-#include "erproc.cpp"
 
 using namespace std;
 
