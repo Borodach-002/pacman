@@ -11,7 +11,7 @@ set(SOURCES
     main.cpp
     settings.cpp
     rendering.cpp
-    erproc.c
+    erproc.cpp
     1bitinput.cpp
 )
 
@@ -24,4 +24,14 @@ set(HEADERS
 )
 
 # Создайте исполняемый файл из исходных файлов
-add_executable(MyCppProject ${SOURCES} )
+add_executable(MyCppProject ${SOURCES} ${HEADERS})
+
+# Найдите и подключите необходимые библиотеки
+find_package(Threads REQUIRED)
+if(UNIX AND NOT APPLE)
+    target_link_libraries(MyCppProject PRIVATE Threads::Threads)
+    target_link_libraries(MyCppProject PRIVATE rt)  # для POSIX realtime extensions, если используются
+    target_link_libraries(MyCppProject PRIVATE m)   # для математической библиотеки
+    target_link_libraries(MyCppProject PRIVATE dl)  # для dlopen и др. динамических библиотек
+    target_link_libraries(MyCppProject PRIVATE socket)  # Для сокетов, проверьте название библиотеки в вашей системе
+endif()
