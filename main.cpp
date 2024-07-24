@@ -143,14 +143,14 @@ void OnlineGame()
     // int fd = Accept(server, (struct sockaddr *) &adr, &adrlen);
 
         //подключаемся к серверу
-    int server = Socket(AF_INET, SOCK_STREAM, 0); // создание сокета
+    int server = socket(AF_INET, SOCK_STREAM, 0); // создание сокета
     struct sockaddr_in adr = {0};
     adr.sin_family = AF_INET;
     adr.sin_port = htons(8080);
-    Bind(server, (struct sockaddr *) &adr, sizeof adr);
-    Listen(server, 5);
+    bind(server, (struct sockaddr *) &adr, sizeof adr);
+    listen(server, 5);
     socklen_t adrlen = sizeof adr;
-    int fd = Accept(server, (struct sockaddr *) &adr, &adrlen);
+    int fd = accept(server, (struct sockaddr *) &adr, &adrlen);
 
     int enemy_score(0);
 
