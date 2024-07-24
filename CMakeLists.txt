@@ -24,7 +24,7 @@ set(HEADERS
 )
 
 # Создайте исполняемый файл из исходных файлов
-add_executable(MyCppProject ${SOURCES} ${HEADERS})
+add_executable(MyCppProject ${SOURCES} )
 
 # Найдите и подключите необходимые библиотеки
 find_package(Threads REQUIRED)
