@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Укажите название проекта
-project(pacman)
+project(MyCppProject)
 
 # Укажите стандарт языка C++
 set(CMAKE_CXX_STANDARD 17)
@@ -21,7 +21,8 @@ set(HEADERS
     rendering.h
     erproc.h
     1bitinput.h
+    1bitinput.h
 )
 
 # Создайте исполняемый файл из исходных файлов
-add_executable(pacman ${SOURCES} ${HEADERS})
+add_executable(MyCppProject ${SOURCES} ${HEADERS})
