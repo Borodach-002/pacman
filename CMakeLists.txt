@@ -21,8 +21,7 @@ set(HEADERS
     rendering.h
     erproc.h
     1bitinput.h
-    1bitinput.h
 )
 
 # Создайте исполняемый файл из исходных файлов
-add_executable(MyCppProject ${SOURCES} ${HEADERS})
+add_executable(MyCppProject ${SOURCES} )
