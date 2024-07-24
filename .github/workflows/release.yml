@@ -2,30 +2,26 @@ name: Release
 
 on:
   push:
-    branches: [ master ]
-  workflow_dispatch:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-    # This workflow contains a single job called "build"
-    release:
-        # The type of runner that the job will run on
-        runs-on: ubuntu-latest
-        
-        # Steps represent a sequence of tasks that will be executed as part of the job
-        steps:
-            - name: Checkout the repository
-              uses: actions/checkout@master
-            - name: Generate the artifacts
-              uses: skx/github-action-build@master
-              with:
-                builder: .github/build
-            - name: Upload binaries to release
-              uses: svenstaro/upload-release-action@v2
-              with:
-                    repo_token: ${{ secrets.TOKEN_GITHUB }}
-                    file: pacman.bin
-                    tag: release
-                    overwrite: true
-                    body: this is the latest auto-release
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up CMake
+      uses: lukka/get-cmake@v3.21.2
+
+    - name: Configure CMake
+      run: cmake -S . -B build
+
+    - name: Build
+      run: cmake --build build
+
+    - name: Run tests
+      run: ctest --test-dir build
                     
