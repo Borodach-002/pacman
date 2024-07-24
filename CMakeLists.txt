@@ -33,5 +33,4 @@ if(UNIX AND NOT APPLE)
     target_link_libraries(MyCppProject PRIVATE rt)  # для POSIX realtime extensions, если используются
     target_link_libraries(MyCppProject PRIVATE m)   # для математической библиотеки
     target_link_libraries(MyCppProject PRIVATE dl)  # для dlopen и др. динамических библиотек
-    target_link_libraries(MyCppProject PRIVATE socket)  # Для сокетов, проверьте название библиотеки в вашей системе
 endif()
