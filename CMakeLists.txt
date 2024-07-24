@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Укажите название проекта
-project(MyCppProject)
+project(pacman)
 
 # Укажите стандарт языка C++
 set(CMAKE_CXX_STANDARD 17)
@@ -24,4 +24,4 @@ set(HEADERS
 )
 
 # Создайте исполняемый файл из исходных файлов
-add_executable(MyCppProject ${SOURCES} ${HEADERS})
+add_executable(pacman ${SOURCES} ${HEADERS})
