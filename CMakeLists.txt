@@ -11,7 +11,7 @@ set(SOURCES
     main.cpp
     settings.cpp
     rendering.cpp
-    erproc.cpp
+    erproc.c
     1bitinput.cpp
 )
 
